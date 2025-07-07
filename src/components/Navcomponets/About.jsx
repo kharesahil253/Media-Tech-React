@@ -2,6 +2,7 @@ import React from "react";
 import Navbar2 from "./Navbar2";
 import { navbaroptions } from "../Navbar";
 import Footer from "../Footer";
+import Whatsapp from "../Whatsapp";
 
 const About = () => {
   // const content = [
@@ -26,6 +27,7 @@ const About = () => {
   // ];
   return (
     <>
+    <Whatsapp/>
       <Navbar2 navLinks={navbaroptions} />
       <h1 className="bg-gradient-to-r from-[#d0e8ef] via-white to-[#fcd3bb] text-4xl text-center font-bold  pt-4 pb-4">
         About Us
@@ -103,7 +105,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* MEET OUR TEAM */}
             <div className="flex items-start gap-4 bg-white border border-gray-200 shadow-md rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
               <img
                 src="https://www.mediatechtemple.com/wp-content/uploads/2019/07/chek_g.png"

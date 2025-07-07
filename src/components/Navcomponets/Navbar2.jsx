@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Menu } from "lucide-react";
 import Boxing from "./Boxing";
 import { useState } from "react";
+import NavDropDown from "../NavDropDown";
 const Navbar2 = ({ navLinks }) => {
    const [showbox, setshowbox] = useState(false);
      const sbox = () => {
@@ -29,9 +30,12 @@ const Navbar2 = ({ navLinks }) => {
           className="h-15 mr-20"
         />
 
-        {/* Nav Links */}
-        <ul className="hidden  ml-25 md:flex items-center gap-6 font-semibold text-black text-medium">
+        {/* Navbar*/}
+        <ul className="hidden  ml-25 md:flex items-center gap-6 font-bold text-black text-medium">
           {navLinks.map((item, index) => (
+             item.dropdown ? (
+              <NavDropDown  item={item} />
+            ) :
             <li key={index}>
               <Link
                 to={`/${item.link}`}

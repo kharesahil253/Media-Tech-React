@@ -43,7 +43,7 @@ const Services = () => {
   return (
     <section className="py-20 bg-white text-center">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Headings */}
+     
         <h5 className="text-sm text-gray-500 font-semibold uppercase tracking-widest">
           Our Services
         </h5>
@@ -52,7 +52,7 @@ const Services = () => {
         </h3>
 
         <div className="grid md:grid-cols-3 gap-6 items-center">
-          {/* Left services */}
+        
           <div className="space-y-10 text-left">
             {servicetdata.slice(0, 3).map((service, index) => (
               <div key={index} className="flex items-start gap-4 ml-10">
@@ -71,7 +71,7 @@ const Services = () => {
             ))}
           </div>
 
-          {/* Center image */}
+        
           <div className="hidden md:flex justify-center">
             <img
               src="https://www.mediatechtemple.com/wp-content/uploads/2019/12/man_with_laptop.png"
@@ -80,7 +80,7 @@ const Services = () => {
             />
           </div>
 
-          {/* Right services */}
+         
           <div className="space-y-10 text-left">
             {servicetdata.slice(3).map((service, index) => (
               <div key={index} className="flex items-start gap-4">

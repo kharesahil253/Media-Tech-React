@@ -10,8 +10,8 @@ import OurClients from "./components/Navcomponets/OurClients";
 import ContactUs from "./components/Navcomponets/ContactUs";
 import HomeSection from "./components/HomeSection";
 import Digital from "./components/another/Digital";
-// import Political from "./components/another/Political";
-import "./App.css"
+import "./App.css";
+import Political from "./components/another/Political";
 
 const appRouter = createBrowserRouter([
   {
@@ -44,9 +44,57 @@ const appRouter = createBrowserRouter([
     element: <ContactUs />,
   },
   {
-    path:"/product&services",
+    path:"/digital",
     element:<Digital/>
-  }
+  },
+  // {
+  //   path: "/bulksms",
+  //   element: <BulkSms />,
+  // },
+  // {
+  //   path: "/seo",
+  //   element: <SEO />,
+  // },
+  // {
+  //   path: "/voicecall",
+  //   element: <VoiceCall />,
+  // },
+  // {
+  //   path: "/whatsapp",
+  //   element: <WhatsApp />,
+  // },
+  // {
+  //   path: "/smo",
+  //   element: <SMO />,
+  // },
+  // {
+  //   path: "/ppc",
+  //   element: <PPC />,
+  // },
+  {
+    path: "/political",
+    element: <Political />,
+  },
+  // {
+  //   path: "/webdev",
+  //   element: <WebDev />,
+  // },
+  // {
+  //   path: "/dataextractor",
+  //   element: <DataExtractor />,
+  // },
+  // {
+  //   path: "/googlemap",
+  //   element: <GoogleMap />,
+  // },
+  // {
+  //   path: "/transport",
+  //   element: <Transport />,
+  // },
+  // {
+  //   path: "/account",
+  //   element: <Account />,
+  // },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);

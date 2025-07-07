@@ -7,6 +7,7 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { z } from "zod";
+import Whatsapp from "../Whatsapp";
 const contactSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email"),
@@ -61,27 +62,26 @@ const ContactUs = () => {
   };
   return (
     <div>
+      <Whatsapp/>
       <Navbar2 navLinks={navbaroptions} />
       <h1 className="bg-gradient-to-r from-[#d0e8ef] via-white to-[#fcd3bb] text-4xl text-center font-bold  pt-4 pb-4">
         Contact Us
       </h1>
 
-      {/* Intro Section */}
-      <div className="text-center px-4 md:px-0 max-w-3xl mx-auto mb-10">
+      
+      <div className="text-center px-4 md:px-0 max-w-xl mt-12  text-blue-950 mx-auto mb-10">
         <h2 className="text-3xl font-bold mb-2">
           Find the Perfect Solution for Your Business
         </h2>
-        <p className="text-gray-600 text-base">
+        <p className="text-blue-950 font-semibold text-base mt-7">
           The world of e-commerce gives its very own set of challenges and
           possibilities. Media Tech Temple assists e-trade agencies in
           optimizing their online stores for maximum visibility and conversions.
         </p>
       </div>
 
-      {/* Main Content */}
-      <div className="flex flex-col md:flex-row justify-center gap-8 px-4 md:px-20 mb-16">
-        {/* Contact Info */}
-        <div className="md:w-1/2 space-y-4 text-sm leading-relaxed">
+      <div className="flex flex-col md:flex-row  text-blue-950 justify-between gap-6 px-4 md:px-20 mb-16 items-start">
+        <div className="md:w-1/2 max-w-md space-y-4 text-sm leading-relaxed mt-10">
           <h3 className="text-xl font-semibold mb-2">Reach Us At:</h3>
           <p>
             <strong>General Enquiry:</strong> +91-7220867768
@@ -118,100 +118,104 @@ const ContactUs = () => {
           </p>
         </div>
 
-        {/* Contact Form */}
-        <div className="md:w-1/2">
-          <Card className="bg-purple-100 p-8 rounded-lg shadow-lg drop">
-            <CardHeader className="text-center mb-4">
-              <h2 className="text-2xl font-bold text-grey-900">
+        <div className="w-full md:w-[560px]">
+          <div className="w-full md:w-xl">
+            <Card className="shadow-lg boxi">
+              <CardHeader className="text-2xl font-bold text-start text-blue-950">
                 Drop Us a Line
-              </h2>
-              <p className="text-grey-700 mt-1">
+              </CardHeader>
+              <CardHeader className="text-lg -mt-4 font-semibold text-start text-blue-950">
                 Feel free to contact us anytime
-              </p>
-            </CardHeader>
+              </CardHeader>
 
-            <CardContent className="space-y-6">
-              <form className="mt-5" onSubmit={handleSub}>
-                <div className="m-3">
-                  <Input
-                    ref={nameRef}
-                    name="name"
-                    value={formData.name}
-                    placeholder="Your Name"
-                    onChange={handleChange}
-                    className="w-full p-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                  {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.name[0]}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <Input
-                    name="email"
-                    placeholder="Email*"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.email[0]}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <Input
-                    name="phone"
-                    placeholder="Phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                  {errors.phone && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.phone[0]}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <Input
-                    name="website"
-                    placeholder="Website"
-                    value={formData.website}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                  {errors.website && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.website[0]}
-                    </p>
-                  )}
-                </div>
+              <CardContent className="space-y-4">
+                <form className="mt-4" onSubmit={handleSub}>
+                  <div className="mb-5">
+                    <Input
+                      ref={nameRef}
+                      name="name"
+                      value={formData.name}
+                      placeholder="Your Name"
+                      onChange={handleChange}
+                      className="w-full p-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.name[0]}
+                      </p>
+                    )}
+                  </div>
 
-                <div className="mb-4">
-                  <Textarea
-                    name="query"
-                    placeholder="Your Message"
-                    rows={4}
-                    value={formData.query}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-purple-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                  {errors.query && (
-                    <p className="text-red-500 text-sm mt-1">
-                      {errors.query[0]}
-                    </p>
-                  )}
-                </div>
+                  <div className="mb-5">
+                    <Input
+                      name="email"
+                      placeholder="Email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.email[0]}
+                      </p>
+                    )}
+                  </div>
 
-                <Button className="bg-gradient-to-r from-purple-500 to-purple-700 text-white py-2 px-6 rounded hover:opacity-90">
-                  SEND MESSAGE
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                  <div className="mb-5">
+                    <Input
+                      name="phone"
+                      placeholder="Phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.phone[0]}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mb-5">
+                    <Input
+                      name="website"
+                      placeholder="Website"
+                      value={formData.website}
+                      onChange={handleChange}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    {errors.website && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.website[0]}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mb-5">
+                    <Textarea
+                      name="query"
+                      placeholder="Your Message"
+                      rows={4}
+                      value={formData.query}
+                      onChange={handleChange}
+                      className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    />
+                    {errors.query && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.query[0]}
+                      </p>
+                    )}
+                  </div>
+
+                  <Button className="w-1/2 bg-blue-600 hover:bg-blue-700 text-white">
+                    Send Message
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
       <Footer />

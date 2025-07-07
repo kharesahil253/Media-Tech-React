@@ -3,6 +3,7 @@ import { RiArrowDownSFill } from "@remixicon/react";
 import { Menu } from "lucide-react";
 import Boxing from "./Navcomponets/Boxing";
 import { useState } from "react";
+import NavDropDown from "./NavDropDown";
 export const navbaroptions = [
   { link: "home", text: "Home" },
   { link: "about", text: "About Us" },
@@ -10,10 +11,64 @@ export const navbaroptions = [
     link: "product&services",
     text: (
       <>
-        Product & Services{" "}
+        Product & Services
         <RiArrowDownSFill size={16} className="inline ml-1" />
       </>
     ),
+    dropdown: [
+      {
+        text: (
+          <>
+            Marketing & Advertisement
+            <RiArrowDownSFill size={16} className="inline " />
+          </>
+        ),
+        subdropdown: [
+          { link: "bulksms", text: "Bulk SMS Marketing" },
+          { link: "voicecall", text: "Voice Call Services" },
+          { link: "whatsapp", text: "Bulk WhatsApp Marketing" },
+          { link: "seo", text: "Search Engine Optimization (SEO)" },
+          { link: "smo", text: "Social Media Optimization" },
+          { link: "ppc", text: "Best PPC Advertising" },
+          { link: "digital", text: "Digital Marketing Services" },
+          { link: "political", text: "Political Campaign Management" },
+        ],
+      },
+      {
+        text: (
+          <>
+            Design & Development{" "}
+            <RiArrowDownSFill size={16} className="inline ml-1" />
+          </>
+        ),
+        subdropdown: [{ link: "webdev", text: "Website Development" }],
+      },
+      {
+        text: (
+          <>
+            Data Tools
+            <RiArrowDownSFill size={16} className="inline " />
+          </>
+        ),
+        subdropdown: [
+          { link: "dataextractor", text: "Data Extractor" },
+          { link: "googlemap", text: "Google Map Extractor" },
+        ],
+      },
+      { link: "callcenter", text: "Call Center" },
+      {
+        text: (
+          <>
+            Software Management System
+            <RiArrowDownSFill size={16} className="inline " />
+          </>
+        ),
+        subdropdown: [
+          { link: "transport", text: "Transport Management System" },
+          { link: "account", text: "Account Management Software" },
+        ],
+      },
+    ],
   },
   { link: "ourventures", text: "Our Ventures" },
   { link: "clients", text: "Clients" },
@@ -23,12 +78,11 @@ export const navbaroptions = [
 
 const Navbar = () => {
   const [showbox, setshowbox] = useState(false);
-  // const boxRef = useRef(null);
   // const menuRef = useRef(null);
   const sbox = () => {
     setshowbox((prev) => !prev);
   };
-  // useEffect(() => {
+
   //   const handleClickOutside = (event) => {
   //     if (
   //       boxRef.current &&
@@ -56,7 +110,6 @@ const Navbar = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between">
-        {/* Logo */}
         <div className="mb-3 md:mb-0">
           <img
             src="https://www.mediatechtemple.com/wp-content/uploads/2023/09/mtt-5-1.png"
@@ -65,20 +118,22 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Nav Links */}
         <div className="flex md:justify-start gap-6 font-bold text-gray-700 mr-25">
-          {navbaroptions.map((item) => (
-            <Link
-              key={item.link}
-              to={`/${item.link}`}
-              className="hover:text-indigo-600 transition-colors"
-            >
-              {item.text}
-            </Link>
-          ))}
+          {navbaroptions.map((item) =>
+            item.dropdown ? (
+              <NavDropDown item={item} />
+            ) : (
+              <Link
+                key={item.link}
+                to={`/${item.link}`}
+                className="hover:text-indigo-600 transition-colors"
+              >
+                {item.text}
+              </Link>
+            )
+          )}
         </div>
 
-        {/* Right side: Call & Icon */}
         <div className="flex items-centre justify-end gap-3 mt-3 ml-10 md:mt-0">
           <h4 className="text-sm font-semibold text-blue-700">
             Call Us: 7220867768

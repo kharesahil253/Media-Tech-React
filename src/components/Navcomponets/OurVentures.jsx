@@ -4,12 +4,14 @@ import { Button } from "../ui/button";
 import Footer from "../Footer";
 import { ventures } from "../Ventures";
 import { navbaroptions } from "../Navbar";
+import Whatsapp from "../Whatsapp";
 
 const OurVentures = () => {
   console.log("Ventures array:", ventures);
 
   return (
     <div>
+      <Whatsapp/>
       <Navbar2 navLinks={navbaroptions} />
       <h1 className="bg-gradient-to-r from-[#d0e8ef] via-white to-[#fcd3bb] text-4xl text-center font-bold  pt-4 pb-4">
         Our Ventures

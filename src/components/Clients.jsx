@@ -34,7 +34,6 @@ const Clients = () => {
               alt={`client-${index}`}
               className="h-16 object-contain z-10 transition-transform duration-300 group-hover:scale-105"
             />
-            {/* Bottom-up gradient overlay */}
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-pink-500 to-red-500 opacity-0 group-hover:opacity-80 transition-all duration-500 z-0" />
           </div>
         ))}
